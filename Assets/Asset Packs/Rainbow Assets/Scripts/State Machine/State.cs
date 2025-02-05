@@ -6,10 +6,10 @@ namespace RainbowAssets.StateMachine
 {
     public abstract class State : ScriptableObject
     {
-        [SerializeField] string uniqueID;
         [SerializeField] string title = "New State";
-        [SerializeField] Vector2 position;
         [SerializeField] List<Transition> transitions = new();
+        [HideInInspector, SerializeField] string uniqueID;
+        [HideInInspector, SerializeField] Vector2 position;
         Dictionary<string, Transition> transitionLookup = new();
         bool started = false;
         protected StateMachineController controller;

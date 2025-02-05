@@ -6,9 +6,9 @@ namespace RainbowAssets.StateMachine
     [System.Serializable]
     public class Transition
     {
-        [SerializeField] string rootStateID;
-        [SerializeField] string trueStateID;
         [SerializeField] Condition condition;
+        [SerializeField, HideInInspector] string rootStateID;
+        [SerializeField, HideInInspector] string trueStateID;
         StateMachineController controller;
 
         public Transition(string rootStateID, string trueStateID)

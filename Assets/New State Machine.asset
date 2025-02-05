@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ddedce7bbba8c408e2c6e1570cd3d5, type: 3}
   m_Name: AnyState
   m_EditorClassIdentifier: 
-  uniqueID: a0006ac9-f2b1-49b0-b3e7-bc4c6742eb00
   title: Any
-  position: {x: 250, y: 50}
   transitions: []
+  uniqueID: a0006ac9-f2b1-49b0-b3e7-bc4c6742eb00
+  position: {x: 336, y: 73}
 --- !u!114 &-5352534340926738529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,14 +28,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248a74bd55c629a458261d2d8fe3a225, type: 3}
   m_Name: EntryState
   m_EditorClassIdentifier: 
-  uniqueID: b792d089-e05f-484b-931a-cbf133bfc5db
   title: Entry
-  position: {x: 250, y: 0}
   transitions:
-  - rootStateID: b792d089-e05f-484b-931a-cbf133bfc5db
-    trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
-    condition:
+  - condition:
       and: []
+    rootStateID: b792d089-e05f-484b-931a-cbf133bfc5db
+    trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
+  uniqueID: b792d089-e05f-484b-931a-cbf133bfc5db
+  position: {x: 336, y: 12}
 --- !u!114 &-1452028322437844854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,14 +48,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
   m_Name: ActionState
   m_EditorClassIdentifier: 
-  uniqueID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
-  title: New State
-  position: {x: 258, y: -100}
+  title: A
   transitions:
-  - rootStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
-    trueStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
-    condition:
+  - condition:
       and: []
+    rootStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
+    trueStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
+  - condition:
+      and: []
+    rootStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
+    trueStateID: a4ef5176-6027-48c7-8e26-f81493968a14
+  uniqueID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
+  position: {x: 298, y: -84}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
@@ -78,6 +82,34 @@ MonoBehaviour:
   - {fileID: -8027215600360996897}
   - {fileID: -1452028322437844854}
   - {fileID: 4526026610261638063}
+  - {fileID: 2292563328680096934}
+--- !u!114 &2292563328680096934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: C
+  transitions:
+  - condition:
+      and: []
+    rootStateID: a4ef5176-6027-48c7-8e26-f81493968a14
+    trueStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
+  - condition:
+      and: []
+    rootStateID: a4ef5176-6027-48c7-8e26-f81493968a14
+    trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
+  uniqueID: a4ef5176-6027-48c7-8e26-f81493968a14
+  position: {x: 673, y: -8}
+  onEnterActions: []
+  onTickActions: []
+  onExitActions: []
 --- !u!114 &4526026610261638063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,10 +122,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
   m_Name: ActionState
   m_EditorClassIdentifier: 
+  title: B
+  transitions:
+  - condition:
+      and: []
+    rootStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
+    trueStateID: a4ef5176-6027-48c7-8e26-f81493968a14
+  - condition:
+      and: []
+    rootStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
+    trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
   uniqueID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
-  title: New State
-  position: {x: 385, y: -178}
-  transitions: []
+  position: {x: 546, y: -204.5}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
