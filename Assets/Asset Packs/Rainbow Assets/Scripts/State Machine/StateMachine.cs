@@ -8,9 +8,9 @@ namespace RainbowAssets.StateMachine
     [CreateAssetMenu(menuName = "Rainbow Assets/New State Machine")]
     public class StateMachine : ScriptableObject, ISerializationCallbackReceiver
     {
-        [SerializeField] EntryState entryState;
-        [SerializeField] AnyState anyState;
-        [SerializeField] List<State> states = new();
+        [SerializeField, HideInInspector] EntryState entryState;
+        [SerializeField, HideInInspector] AnyState anyState;
+        [SerializeField, HideInInspector] List<State> states = new();
         Vector2 entryStateOffset = new(250, 0);
         Vector2 anyStateOffset = new(250, 50);
         Dictionary<string, State> stateLookup = new();
