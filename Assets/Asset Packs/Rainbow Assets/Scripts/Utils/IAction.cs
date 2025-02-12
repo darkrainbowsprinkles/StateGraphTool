@@ -2,6 +2,6 @@ namespace RainbowAssets.Utils
 {
     public interface IAction
     {
-        void DoAction(string actionID, string[] parameters);
+        void DoAction(EAction action, string[] parameters);
     }
 }

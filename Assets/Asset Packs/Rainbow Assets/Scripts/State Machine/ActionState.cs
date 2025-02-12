@@ -12,7 +12,7 @@ namespace RainbowAssets.StateMachine
         [System.Serializable]
         class ActionData
         {
-            public string actionID;
+            public EAction action;
             public string[] parameters;
         }
 
@@ -40,7 +40,7 @@ namespace RainbowAssets.StateMachine
             {
                 foreach(var actionData in actions)
                 {
-                    action.DoAction(actionData.actionID, actionData.parameters);
+                    action.DoAction(actionData.action, actionData.parameters);
                 }
             }
         }
