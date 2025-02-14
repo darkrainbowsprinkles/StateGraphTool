@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -21,7 +22,6 @@ namespace RainbowAssets.StateMachine.Editor
 
             if (serializedState.targetObject is State state)
             {
-                // Draw transition label and condition array
                 DrawTransitionLabel(property, container, state);
                 DrawConditionArray(property, container);
             }

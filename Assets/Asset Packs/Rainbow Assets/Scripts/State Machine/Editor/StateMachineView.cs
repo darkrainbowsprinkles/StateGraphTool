@@ -92,7 +92,6 @@ namespace RainbowAssets.StateMachine.Editor
         {
             if (!Application.isPlaying)
             {
-                // Add custom menu item for creating a state
                 base.BuildContextualMenu(evt);
                 Vector2 mousePosition = viewTransform.matrix.inverse.MultiplyPoint(evt.localMousePosition);
                 evt.menu.AppendAction($"Create State", a => CreateState(typeof(ActionState), mousePosition));
@@ -106,7 +105,6 @@ namespace RainbowAssets.StateMachine.Editor
         {
             var compatiblePorts = new List<Port>();
 
-            // Check for compatible ports to connect to
             foreach (var endPort in ports)
             {
                 if (endPort.direction == startPort.direction)

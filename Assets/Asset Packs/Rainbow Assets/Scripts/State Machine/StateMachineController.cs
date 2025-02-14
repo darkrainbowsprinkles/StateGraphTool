@@ -31,26 +31,19 @@ namespace RainbowAssets.StateMachine
             stateMachine.SwitchState(newStateID);
         }
 
-        /// <summary>
-        /// Clones the assigned StateMachine to create an independent instance.
-        /// </summary>
+        // LIFECYCLE METHODS
+
         void Awake()
         {
             stateMachine = stateMachine.Clone();
         }
 
-        /// <summary>
-        /// Binds the StateMachine to this controller and enters the initial state.
-        /// </summary>
         void Start()
         {
             stateMachine.Bind(this);
             stateMachine.Enter();
         }
 
-        /// <summary>
-        /// Updates the StateMachine every frame.
-        /// </summary>
         void Update()
         {
             stateMachine.Tick();

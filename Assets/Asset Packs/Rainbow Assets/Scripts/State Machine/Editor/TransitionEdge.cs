@@ -34,6 +34,29 @@ namespace RainbowAssets.StateMachine.Editor
         }
 
         /// <summary>
+        /// Determines whether a given point is within the bounds of the transition edge
+        /// </summary>
+        public override bool ContainsPoint(Vector2 localPoint)
+        {
+            if(base.ContainsPoint(localPoint))
+            {
+                return true; 
+            }
+
+            Vector2 start = PointsAndTangents[PointsAndTangents.Length / 2 - 1];
+            Vector2 end = PointsAndTangents[PointsAndTangents.Length / 2];
+            Vector2 mid = (start + end) / 2;
+
+            if(IsSelfTransition())
+            {
+                mid = PointsAndTangents[0] + Vector2.up * selfArrowOffset;
+            }
+
+            return (localPoint - mid).sqrMagnitude <= (arrowWidth * arrowWidth);
+        }
+
+
+        /// <summary>
         /// Callback method for handling geometry changes in the edge's layout.
         /// </summary>
         /// <param name="evt">The event data containing information about the geometry change.</param>
