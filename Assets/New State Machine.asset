@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Any
   transitions: []
   uniqueID: a0006ac9-f2b1-49b0-b3e7-bc4c6742eb00
-  position: {x: 445, y: 79}
+  position: {x: 517, y: -2}
 --- !u!114 &-5352534340926738529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     rootStateID: b792d089-e05f-484b-931a-cbf133bfc5db
     trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
   uniqueID: b792d089-e05f-484b-931a-cbf133bfc5db
-  position: {x: 414, y: -5.480011}
+  position: {x: 516, y: -56}
 --- !u!114 &-4769065026270385470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     rootStateID: ccc6659e-217b-4b2a-89e9-ddcff5c145df
     trueStateID: ccc6659e-217b-4b2a-89e9-ddcff5c145df
   uniqueID: ccc6659e-217b-4b2a-89e9-ddcff5c145df
-  position: {x: 951, y: -217}
+  position: {x: 900, y: -196}
   onEnterActions: []
   onTickActions: []
   onExitActions: []

@@ -23,6 +23,11 @@ namespace RainbowAssets.StateMachine.Editor
         StateMachine stateMachine;
 
         /// <summary>
+        /// Action for handling state selection.
+        /// </summary>
+        public Action<State> onStateSelected;
+
+        /// <summary>
         /// Initializes the StateMachineView, loading the necessary stylesheet and setting up manipulators for interaction.
         /// </summary>
         public StateMachineView()
@@ -149,6 +154,7 @@ namespace RainbowAssets.StateMachine.Editor
         void CreateStateView(State state)
         {
             StateView newStateView = new(state);
+            newStateView.onStateSelected = onStateSelected;
             AddElement(newStateView);
         }
 

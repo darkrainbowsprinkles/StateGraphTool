@@ -20,6 +20,11 @@ namespace RainbowAssets.StateMachine.Editor
         StateMachineView stateMachineView;
 
         /// <summary>
+        /// The editor to display data of each state.
+        /// </summary>
+        StateEditor stateEditor;
+
+        /// <summary>
         /// Displays the State Machine Editor window.
         /// </summary>
         [MenuItem("Rainbow Assets/State Machine Editor")]
@@ -57,6 +62,9 @@ namespace RainbowAssets.StateMachine.Editor
             visualTree.CloneTree(root);
 
             stateMachineView = root.Q<StateMachineView>();
+            stateEditor = root.Q<StateEditor>();
+
+            stateMachineView.onStateSelected = OnStateSelected;
 
             OnSelectionChange();
         }
@@ -98,6 +106,14 @@ namespace RainbowAssets.StateMachine.Editor
         void OnDisable()
         {
             EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+        }
+
+        /// <summary>
+        /// Refreshes the state editor every time a state is selected.
+        /// </summary>
+        void OnStateSelected(State state)
+        {
+            stateEditor.Refresh(state);
         }
 
         /// <summary>
