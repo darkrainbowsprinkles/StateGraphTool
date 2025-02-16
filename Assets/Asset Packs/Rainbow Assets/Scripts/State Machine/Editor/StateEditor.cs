@@ -50,16 +50,15 @@ namespace RainbowAssets.StateMachine.Editor
 
         void DrawTransitions()
         {
-            container.Add(new Label("Transitions:"));
-            container.Add(GetSpace());
-
             ListView listView = new()
             {
+                headerTitle = "Transitions",
                 bindingPath = "transitions", 
-                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
                 showBorder = true,
+                showFoldoutHeader = true,
                 showBoundCollectionSize = false,
-                horizontalScrollingEnabled = true
+                horizontalScrollingEnabled = true,
+                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
             };
 
             listView.Bind(serializedObject);

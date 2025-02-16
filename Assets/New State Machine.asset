@@ -87,7 +87,9 @@ MonoBehaviour:
     trueStateID: a4ef5176-6027-48c7-8e26-f81493968a14
   uniqueID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
   position: {x: 563, y: -142}
-  onEnterActions: []
+  onEnterActions:
+  - action: 0
+    parameters: []
   onTickActions: []
   onExitActions: []
 --- !u!114 &11400000
@@ -134,7 +136,7 @@ MonoBehaviour:
     rootStateID: a4ef5176-6027-48c7-8e26-f81493968a14
     trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
   uniqueID: a4ef5176-6027-48c7-8e26-f81493968a14
-  position: {x: 975, y: 39}
+  position: {x: 922, y: -24}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
@@ -170,4 +172,10 @@ MonoBehaviour:
   - action: 0
     parameters: []
   onTickActions: []
-  onExitActions: []
+  onExitActions:
+  - action: 0
+    parameters: []
+  - action: 0
+    parameters: []
+  - action: 0
+    parameters: []
