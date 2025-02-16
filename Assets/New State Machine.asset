@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: AnyState
   m_EditorClassIdentifier: 
   title: Any
-  transitions: []
+  transitions:
+  - condition:
+      and: []
+    rootStateID: a0006ac9-f2b1-49b0-b3e7-bc4c6742eb00
+    trueStateID: a4ef5176-6027-48c7-8e26-f81493968a14
   uniqueID: a0006ac9-f2b1-49b0-b3e7-bc4c6742eb00
-  position: {x: 516, y: 4}
+  position: {x: 525, y: 13}
 --- !u!114 &-5352534340926738529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,17 +53,9 @@ MonoBehaviour:
   m_Name: ActionState
   m_EditorClassIdentifier: 
   title: D
-  transitions:
-  - condition:
-      and:
-      - or:
-        - predicate: 0
-          parameters: []
-          negate: 0
-    rootStateID: ccc6659e-217b-4b2a-89e9-ddcff5c145df
-    trueStateID: ccc6659e-217b-4b2a-89e9-ddcff5c145df
+  transitions: []
   uniqueID: ccc6659e-217b-4b2a-89e9-ddcff5c145df
-  position: {x: 972, y: -173}
+  position: {x: 1049, y: -178}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
@@ -78,7 +74,11 @@ MonoBehaviour:
   title: A
   transitions:
   - condition:
-      and: []
+      and:
+      - or:
+        - predicate: 0
+          parameters: []
+          negate: 0
     rootStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
     trueStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
   - condition:
@@ -86,7 +86,7 @@ MonoBehaviour:
     rootStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
     trueStateID: a4ef5176-6027-48c7-8e26-f81493968a14
   uniqueID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
-  position: {x: 540, y: -165.00002}
+  position: {x: 563, y: -142}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
@@ -123,38 +123,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
   m_Name: ActionState
   m_EditorClassIdentifier: 
-  title: A
+  title: D
   transitions:
   - condition:
-      and:
-      - or:
-        - predicate: 0
-          parameters: []
-          negate: 0
+      and: []
     rootStateID: a4ef5176-6027-48c7-8e26-f81493968a14
     trueStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
   - condition:
-      and:
-      - or:
-        - predicate: 0
-          parameters: []
-          negate: 0
-        - predicate: 0
-          parameters: []
-          negate: 0
-        - predicate: 0
-          parameters: []
-          negate: 0
-        - predicate: 0
-          parameters: []
-          negate: 0
-        - predicate: 0
-          parameters: []
-          negate: 0
+      and: []
     rootStateID: a4ef5176-6027-48c7-8e26-f81493968a14
     trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
   uniqueID: a4ef5176-6027-48c7-8e26-f81493968a14
-  position: {x: 832, y: -5}
+  position: {x: 975, y: 39}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
@@ -185,7 +165,7 @@ MonoBehaviour:
     rootStateID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
     trueStateID: 68b2ef8a-4689-428b-adde-6a63f9dcd5c5
   uniqueID: a0476987-2c39-498e-93ea-cf5cd1ce6e50
-  position: {x: 748.0002, y: -298.00006}
+  position: {x: 841, y: -291.52}
   onEnterActions:
   - action: 0
     parameters: []
