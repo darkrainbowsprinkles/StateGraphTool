@@ -39,11 +39,6 @@ namespace RainbowAssets.StateMachine.Editor
         VisualElement updateContainer;
 
         /// <summary>
-        /// Action for handling state selection.
-        /// </summary>
-        public Action<State> onStateSelected;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="StateView"/> class.
         /// </summary>
         /// <param name="state">The state associated with this view.</param>
@@ -118,7 +113,7 @@ namespace RainbowAssets.StateMachine.Editor
         public override void OnSelected()
         {
             base.OnSelected();
-            onStateSelected?.Invoke(state);
+            Selection.SetActiveObjectWithContext(state, null);
         }
 
         /// <summary>
