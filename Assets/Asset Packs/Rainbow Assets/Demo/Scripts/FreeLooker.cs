@@ -1,20 +1,16 @@
+using RainbowAssets.Utils;
 using UnityEngine;
 
 namespace RainbowAssets.Demo
 {
-    public class FreeLooker : MonoBehaviour
+    public class FreeLooker : MonoBehaviour, IAction
     {
-        [SerializeField, Range(0,1)] float speedFraction = 1;
+        [SerializeField, Range(0,1)] float freeLookSpeedFraction = 1;
         Mover mover;
 
         void Awake()
         {
             mover = GetComponent<Mover>();
-        }
-
-        void Update()
-        {
-            mover.MoveTo(GetFreeLookDirection(), speedFraction);
         }
 
         Vector3 GetFreeLookDirection()
@@ -33,6 +29,16 @@ namespace RainbowAssets.Demo
         Vector2 GetInputValue()
         {
             return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+
+        void IAction.DoAction(EAction action, string[] parameters)
+        {
+            switch(action)
+            {
+                case EAction.FreeLook:
+                    mover.MoveTo(GetFreeLookDirection(), freeLookSpeedFraction);
+                    break;
+            }
         }
     }
 }

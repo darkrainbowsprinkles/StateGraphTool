@@ -6,5 +6,7 @@ namespace RainbowAssets.Utils
     public enum EAction
     {
         // Add action values here when applicable
+        FreeLook, // Demo Action - Remove if desired
+        PlayAnimation // Demo Action - Remove if desired
     }
 }

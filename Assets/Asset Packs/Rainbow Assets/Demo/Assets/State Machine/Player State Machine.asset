@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3851196741605262297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Attack State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 1
+          parameters:
+          - Combat
+          negate: 0
+    rootStateID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
+    trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
+  uniqueID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
+  position: {x: 353, y: -200.28}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Attack
+  onTickActions: []
+  onExitActions: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,6 +48,8 @@ MonoBehaviour:
   states:
   - {fileID: 8475013577419875017}
   - {fileID: 1322068693056487603}
+  - {fileID: 5033902186697387349}
+  - {fileID: -3851196741605262297}
 --- !u!114 &1322068693056487603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,6 +66,39 @@ MonoBehaviour:
   transitions: []
   uniqueID: 96647bfe-3c46-4424-9e0e-b704a80ced02
   position: {x: 250, y: 50}
+--- !u!114 &5033902186697387349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Free Look State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 0
+          parameters:
+          - Mouse0
+          negate: 0
+    rootStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
+    trueStateID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
+  uniqueID: 992921ca-74b1-4123-8cbc-4a514572cd92
+  position: {x: 253, y: -93.56}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Locomotion
+  onTickActions:
+  - action: 0
+    parameters: []
+  onExitActions: []
 --- !u!114 &8475013577419875017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +112,10 @@ MonoBehaviour:
   m_Name: EntryState
   m_EditorClassIdentifier: 
   title: Entry
-  transitions: []
+  transitions:
+  - condition:
+      and: []
+    rootStateID: 822c092b-a459-484d-b279-24db91ba8b96
+    trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
   uniqueID: 822c092b-a459-484d-b279-24db91ba8b96
   position: {x: 250, y: 0}

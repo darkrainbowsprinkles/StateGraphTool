@@ -13,9 +13,34 @@ MonoBehaviour:
   m_Name: EntryState
   m_EditorClassIdentifier: 
   title: Entry
-  transitions: []
+  transitions:
+  - condition:
+      and: []
+    rootStateID: 1e883993-8d25-4f93-972a-5daeddba9691
+    trueStateID: 846a302d-bd86-45a2-b1b3-84c5ea410228
   uniqueID: 1e883993-8d25-4f93-972a-5daeddba9691
   position: {x: 250, y: 0}
+--- !u!114 &-606977293600121025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: 
+  transitions: []
+  uniqueID: 846a302d-bd86-45a2-b1b3-84c5ea410228
+  position: {x: 228, y: -109}
+  onEnterActions:
+  - action: 0
+    parameters: []
+  onTickActions: []
+  onExitActions: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,6 +58,7 @@ MonoBehaviour:
   states:
   - {fileID: -1999382637361577429}
   - {fileID: 5489989328435871862}
+  - {fileID: -606977293600121025}
 --- !u!114 &5489989328435871862
 MonoBehaviour:
   m_ObjectHideFlags: 0

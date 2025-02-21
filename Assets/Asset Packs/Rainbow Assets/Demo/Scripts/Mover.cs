@@ -8,7 +8,7 @@ namespace RainbowAssets.Demo
         [SerializeField] float maxSpeed = 6;
         [SerializeField] float destinationTolerance = 1;
         NavMeshAgent agent;
-        Animator animator;
+        AnimationPlayer animationPlayer;
 
         public void MoveTo(Vector3 destination, float speedFraction)
         {
@@ -24,12 +24,12 @@ namespace RainbowAssets.Demo
         void Awake()
         {
             agent = GetComponent<NavMeshAgent>();   
-            animator = GetComponent<Animator>();
+            animationPlayer = GetComponent<AnimationPlayer>();
         }
 
         void Update()
         {
-            animator.SetFloat("movementSpeed", GetMovementMagnitude(), 0.1f, Time.deltaTime);
+            animationPlayer.UpdateParameter("movementSpeed", GetMovementMagnitude());
         } 
 
         float GetMovementMagnitude()
