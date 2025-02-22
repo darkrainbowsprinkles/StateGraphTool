@@ -7,6 +7,8 @@ namespace RainbowAssets.Utils
     {
         // Add predicate values here when applicable
         KeyCodePressed, // Demo Predicate - Remove if desired
-        AnimationOver // Demo Predicate - Remove if desired
+        AnimationOver, // Demo Predicate - Remove if desired
+        AtWaypoint, // Demo Predicate - Remove if desired
+        CanPatrol // Demo Predicate - Remove if desired
     }
 }
