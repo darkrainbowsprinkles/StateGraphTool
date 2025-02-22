@@ -11,7 +11,7 @@ namespace RainbowAssets.Demo
         [SerializeField] float attackRange = 1;
         [SerializeField] float suspicionDuration = 3;
         Mover mover;
-        GameObject player;
+        Health player;
         float timeSinceLastSawPlayer = Mathf.Infinity;
 
         // Animation Event
@@ -23,7 +23,7 @@ namespace RainbowAssets.Demo
         void Awake()
         {
             mover = GetComponent<Mover>();
-            player = GameObject.FindWithTag("Player");
+            player = GameObject.FindWithTag("Player").GetComponent<Health>();
         }
 
         void Update()
@@ -33,6 +33,11 @@ namespace RainbowAssets.Demo
 
         bool PlayerInRange(float range)
         {
+            if(player.IsDead())
+            {
+                return false;
+            }
+            
             bool inRange = Vector3.Distance(transform.position, player.transform.position) <= range;
             
             if(inRange)

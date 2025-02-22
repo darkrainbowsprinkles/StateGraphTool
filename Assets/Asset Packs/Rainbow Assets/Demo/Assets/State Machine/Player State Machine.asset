@@ -63,6 +63,59 @@ MonoBehaviour:
     - Attack
   onTickActions: []
   onExitActions: []
+--- !u!114 &-3010074215891633232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Dead State
+  transitions: []
+  uniqueID: 97778a54-1e5f-4d2c-aaf0-880819141611
+  position: {x: 538, y: 120}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Death
+  onTickActions: []
+  onExitActions: []
+--- !u!114 &-1050957419590461455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Jump State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 1
+          parameters:
+          - Locomotion
+          negate: 0
+    rootStateID: 3b060acc-d49f-499b-9b45-a0732faac63c
+    trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
+  uniqueID: 3b060acc-d49f-499b-9b45-a0732faac63c
+  position: {x: 85.41498, y: -177.69289}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Jump
+  onTickActions: []
+  onExitActions: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +136,8 @@ MonoBehaviour:
   - {fileID: 5033902186697387349}
   - {fileID: -3851196741605262297}
   - {fileID: -6917832155508505787}
+  - {fileID: -3010074215891633232}
+  - {fileID: -1050957419590461455}
 --- !u!114 &1322068693056487603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +160,14 @@ MonoBehaviour:
           negate: 0
     rootStateID: 96647bfe-3c46-4424-9e0e-b704a80ced02
     trueStateID: 6a493a9c-317a-46b6-b750-36830d3f4a19
+  - condition:
+      and:
+      - or:
+        - predicate: 5
+          parameters: []
+          negate: 0
+    rootStateID: 96647bfe-3c46-4424-9e0e-b704a80ced02
+    trueStateID: 97778a54-1e5f-4d2c-aaf0-880819141611
   uniqueID: 96647bfe-3c46-4424-9e0e-b704a80ced02
   position: {x: 258, y: 94.08}
 --- !u!114 &5033902186697387349
@@ -130,6 +193,15 @@ MonoBehaviour:
           negate: 0
     rootStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
     trueStateID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
+  - condition:
+      and:
+      - or:
+        - predicate: 0
+          parameters:
+          - Space
+          negate: 0
+    rootStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
+    trueStateID: 3b060acc-d49f-499b-9b45-a0732faac63c
   uniqueID: 992921ca-74b1-4123-8cbc-4a514572cd92
   position: {x: 253, y: -93.56}
   onEnterActions:

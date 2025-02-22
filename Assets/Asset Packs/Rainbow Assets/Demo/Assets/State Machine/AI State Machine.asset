@@ -238,7 +238,10 @@ MonoBehaviour:
     trueStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
   uniqueID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
   position: {x: 210, y: -113}
-  onEnterActions: []
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Locomotion
   onTickActions: []
   onExitActions: []
 --- !u!114 &5489989328435871862

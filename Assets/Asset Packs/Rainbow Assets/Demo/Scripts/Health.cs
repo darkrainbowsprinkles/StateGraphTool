@@ -1,5 +1,6 @@
 using RainbowAssets.Utils;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RainbowAssets.Demo
 {
@@ -10,6 +11,11 @@ namespace RainbowAssets.Demo
         LazyEvent OnDamageTaken = new();
         LazyEvent OnDie = new();
 
+        public bool IsDead()
+        {
+            return currentHealth == 0;
+        }
+
         public void TakeDamage(float damage)
         {
             if(!IsDead())
@@ -18,6 +24,7 @@ namespace RainbowAssets.Demo
 
                 if(IsDead())
                 {
+                    GetComponent<NavMeshAgent>().enabled = false;
                     StartCoroutine(OnDie?.Invoke());
                 }
                 else
@@ -30,11 +37,6 @@ namespace RainbowAssets.Demo
         void Start()
         {
             currentHealth = maxHealth;
-        }
-
-        bool IsDead()
-        {
-            return currentHealth == 0;
         }
 
         bool? IPredicateEvaluator.Evaluate(EPredicate predicate, string[] parameters)
