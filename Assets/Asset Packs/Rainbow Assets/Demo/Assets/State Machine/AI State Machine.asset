@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4221810036966382484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Suspicion State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 8
+          parameters: []
+          negate: 0
+    rootStateID: 6a6aed25-12a4-48da-8aa1-083266ccd3a1
+    trueStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
+  uniqueID: 6a6aed25-12a4-48da-8aa1-083266ccd3a1
+  position: {x: 568, y: -105}
+  onEnterActions: []
+  onTickActions:
+  - action: 3
+    parameters: []
+  onExitActions: []
 --- !u!114 &-1999382637361577429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20,6 +49,46 @@ MonoBehaviour:
     trueStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
   uniqueID: 1e883993-8d25-4f93-972a-5daeddba9691
   position: {x: 217, y: -9.360001}
+--- !u!114 &-1000857175453549876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Chase State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 7
+          parameters: []
+          negate: 0
+    rootStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
+    trueStateID: 578a22f3-345d-4e38-a84b-23e60f88210a
+  - condition:
+      and:
+      - or:
+        - predicate: 6
+          parameters: []
+          negate: 1
+    rootStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
+    trueStateID: 6a6aed25-12a4-48da-8aa1-083266ccd3a1
+  uniqueID: aeda4b5c-b159-43b6-9095-dba732c09afd
+  position: {x: 570, y: -200.83751}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Locomotion
+  onTickActions:
+  - action: 4
+    parameters: []
+  onExitActions: []
 --- !u!114 &-606977293600121025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,11 +111,53 @@ MonoBehaviour:
           negate: 0
     rootStateID: 846a302d-bd86-45a2-b1b3-84c5ea410228
     trueStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
+  - condition:
+      and:
+      - or:
+        - predicate: 6
+          parameters: []
+          negate: 0
+    rootStateID: 846a302d-bd86-45a2-b1b3-84c5ea410228
+    trueStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
   uniqueID: 846a302d-bd86-45a2-b1b3-84c5ea410228
-  position: {x: 228, y: -193.16}
+  position: {x: 208.10002, y: -196.4}
   onEnterActions:
   - action: 2
     parameters: []
+  onTickActions: []
+  onExitActions: []
+--- !u!114 &-125271480660922904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Attack State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 1
+          parameters:
+          - Combat
+          negate: 0
+    rootStateID: 578a22f3-345d-4e38-a84b-23e60f88210a
+    trueStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
+  uniqueID: 578a22f3-345d-4e38-a84b-23e60f88210a
+  position: {x: 859.25757, y: -192.73997}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Attack
+  - action: 3
+    parameters:
+    - Attack
   onTickActions: []
   onExitActions: []
 --- !u!114 &11400000
@@ -68,6 +179,33 @@ MonoBehaviour:
   - {fileID: 5489989328435871862}
   - {fileID: -606977293600121025}
   - {fileID: 2201467156117792145}
+  - {fileID: 7613354906441555026}
+  - {fileID: 1130262037323855079}
+  - {fileID: -1000857175453549876}
+  - {fileID: -125271480660922904}
+  - {fileID: -4221810036966382484}
+--- !u!114 &1130262037323855079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Dead State
+  transitions: []
+  uniqueID: 53eaf516-8925-4780-ac4b-a640c081bf23
+  position: {x: 508.93503, y: 71}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Death
+  onTickActions: []
+  onExitActions: []
 --- !u!114 &2201467156117792145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +228,16 @@ MonoBehaviour:
           negate: 0
     rootStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
     trueStateID: 846a302d-bd86-45a2-b1b3-84c5ea410228
+  - condition:
+      and:
+      - or:
+        - predicate: 6
+          parameters: []
+          negate: 0
+    rootStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
+    trueStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
   uniqueID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
-  position: {x: 136, y: -88.76}
+  position: {x: 210, y: -113}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
@@ -108,6 +254,54 @@ MonoBehaviour:
   m_Name: AnyState
   m_EditorClassIdentifier: 
   title: Any
-  transitions: []
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 4
+          parameters: []
+          negate: 0
+    rootStateID: ddbab17c-b7b1-48af-8c44-5823c9712a2c
+    trueStateID: 01727744-2304-459d-8361-5921db1774a6
+  - condition:
+      and:
+      - or:
+        - predicate: 5
+          parameters: []
+          negate: 0
+    rootStateID: ddbab17c-b7b1-48af-8c44-5823c9712a2c
+    trueStateID: 53eaf516-8925-4780-ac4b-a640c081bf23
   uniqueID: ddbab17c-b7b1-48af-8c44-5823c9712a2c
   position: {x: 216, y: 44.5}
+--- !u!114 &7613354906441555026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Damage State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 1
+          parameters:
+          - Impact
+          negate: 0
+    rootStateID: 01727744-2304-459d-8361-5921db1774a6
+    trueStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
+  uniqueID: 01727744-2304-459d-8361-5921db1774a6
+  position: {x: 512.3001, y: -2.9999905}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Impact
+    - Impact 1
+  onTickActions: []
+  onExitActions: []

@@ -40,8 +40,19 @@ namespace RainbowAssets.Demo
             switch(action)
             {
                 case EAction.PlayAnimation:
-                    PlaySmooth(parameters[0]);
+                
+                    if(parameters.Length > 1)
+                    {
+                        int randomIndex = Random.Range(0, parameters.Length);
+                        PlaySmooth(parameters[randomIndex]);
+                    }
+                    else
+                    {
+                        PlaySmooth(parameters[0]);
+                    }
+
                     break;
+
             }
         }
 

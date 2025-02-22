@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6917832155508505787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c41c226ac830cc4badff91167841243, type: 3}
+  m_Name: ActionState
+  m_EditorClassIdentifier: 
+  title: Damage State
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 1
+          parameters:
+          - Impact
+          negate: 0
+    rootStateID: 6a493a9c-317a-46b6-b750-36830d3f4a19
+    trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
+  uniqueID: 6a493a9c-317a-46b6-b750-36830d3f4a19
+  position: {x: 529.5209, y: 8.000008}
+  onEnterActions:
+  - action: 1
+    parameters:
+    - Impact
+    - Impact 1
+  onTickActions: []
+  onExitActions: []
 --- !u!114 &-3851196741605262297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,6 +82,7 @@ MonoBehaviour:
   - {fileID: 1322068693056487603}
   - {fileID: 5033902186697387349}
   - {fileID: -3851196741605262297}
+  - {fileID: -6917832155508505787}
 --- !u!114 &1322068693056487603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,9 +96,17 @@ MonoBehaviour:
   m_Name: AnyState
   m_EditorClassIdentifier: 
   title: Any
-  transitions: []
+  transitions:
+  - condition:
+      and:
+      - or:
+        - predicate: 4
+          parameters: []
+          negate: 0
+    rootStateID: 96647bfe-3c46-4424-9e0e-b704a80ced02
+    trueStateID: 6a493a9c-317a-46b6-b750-36830d3f4a19
   uniqueID: 96647bfe-3c46-4424-9e0e-b704a80ced02
-  position: {x: 250, y: 50}
+  position: {x: 258, y: 94.08}
 --- !u!114 &5033902186697387349
 MonoBehaviour:
   m_ObjectHideFlags: 0

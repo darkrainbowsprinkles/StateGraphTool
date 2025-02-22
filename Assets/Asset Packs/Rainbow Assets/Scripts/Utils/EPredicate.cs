@@ -5,10 +5,15 @@ namespace RainbowAssets.Utils
     /// </summary>
     public enum EPredicate
     {
-        // Add predicate values here when applicable
-        KeyCodePressed, // Demo Predicate - Remove if desired
-        AnimationOver, // Demo Predicate - Remove if desired
-        AtWaypoint, // Demo Predicate - Remove if desired
-        CanPatrol // Demo Predicate - Remove if desired
+        // Following predicates used for Demo, remove them if desired
+        KeyCodePressed,
+        AnimationOver,
+        AtWaypoint,
+        CanPatrol,
+        DamageTakenEvent,
+        DieEvent,
+        PlayerInChaseRange,
+        PlayerInAttackRange,
+        SuspicionFinished
     }
 }

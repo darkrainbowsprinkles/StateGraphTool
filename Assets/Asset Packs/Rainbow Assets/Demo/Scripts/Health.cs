@@ -1,14 +1,14 @@
+using RainbowAssets.Utils;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace RainbowAssets.Demo
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IPredicateEvaluator
     {
         [SerializeField] float maxHealth = 100;
-        float currentHealth;
-        UnityEvent OnDamageTaken;
-        UnityEvent OnDie;
+        [SerializeField] float currentHealth;
+        LazyEvent OnDamageTaken = new();
+        LazyEvent OnDie = new();
 
         public void TakeDamage(float damage)
         {
@@ -18,11 +18,11 @@ namespace RainbowAssets.Demo
 
                 if(IsDead())
                 {
-                    OnDie?.Invoke();
+                    StartCoroutine(OnDie?.Invoke());
                 }
                 else
                 {
-                    OnDamageTaken?.Invoke();
+                    StartCoroutine(OnDamageTaken?.Invoke());
                 }
             }
         }
@@ -34,7 +34,21 @@ namespace RainbowAssets.Demo
 
         bool IsDead()
         {
-            return currentHealth <= 0;
+            return currentHealth == 0;
+        }
+
+        bool? IPredicateEvaluator.Evaluate(EPredicate predicate, string[] parameters)
+        {
+            switch(predicate)
+            {
+                case EPredicate.DamageTakenEvent:
+                    return OnDamageTaken.WasInvoked();
+
+                case EPredicate.DieEvent:
+                    return OnDie.WasInvoked();
+            }
+
+            return null;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace RainbowAssets.Demo
     public class Weapon : MonoBehaviour
     {
         [SerializeField] Transform hitboxCenter;
-        [SerializeField] float hitboxRadius = 3;
+        [SerializeField] float hitboxRadius = 0.5f;
         [SerializeField] float damage = 50;
 
         public void Hit(GameObject user)
@@ -16,7 +16,7 @@ namespace RainbowAssets.Demo
             {
                 if(hit.transform.gameObject == user)
                 {
-                    return;
+                    continue;
                 }
 
                 if(hit.transform.TryGetComponent(out Health health))
@@ -25,5 +25,11 @@ namespace RainbowAssets.Demo
                 }
             }
         }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(hitboxCenter.position, hitboxRadius);
+        }   
     }
 }
