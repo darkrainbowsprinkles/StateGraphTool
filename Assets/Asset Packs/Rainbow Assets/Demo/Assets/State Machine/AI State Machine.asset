@@ -91,7 +91,7 @@ MonoBehaviour:
     rootStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
     trueStateID: 846a302d-bd86-45a2-b1b3-84c5ea410228
   uniqueID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
-  position: {x: 128, y: -91}
+  position: {x: 136, y: -88.76}
   onEnterActions: []
   onTickActions: []
   onExitActions: []
