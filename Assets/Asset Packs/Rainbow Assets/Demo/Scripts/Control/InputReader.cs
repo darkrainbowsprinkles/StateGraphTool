@@ -2,7 +2,7 @@ using System;
 using RainbowAssets.Utils;
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Control
 {
     /// <summary>
     /// Handles input reading.

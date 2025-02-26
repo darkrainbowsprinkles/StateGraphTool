@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Control
 {
     /// <summary>
     /// Defines a patrol path using child objects as waypoints.

@@ -1,6 +1,7 @@
+using RainbowAssets.Demo.Attributes;
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Combat
 {
     /// <summary>
     /// Represents a weapon for combat.

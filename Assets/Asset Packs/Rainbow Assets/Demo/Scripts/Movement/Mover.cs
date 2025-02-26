@@ -1,8 +1,9 @@
+using RainbowAssets.Demo.Core;
 using RainbowAssets.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Movement
 {
     /// <summary>
     /// Handles character movement.

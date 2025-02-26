@@ -2,7 +2,7 @@ using RainbowAssets.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Attributes
 {
     /// <summary>
     /// Manages the health system, handling damage, death events, and evaluations.
@@ -20,14 +20,22 @@ namespace RainbowAssets.Demo
         [SerializeField] float currentHealth;
 
         /// <summary>
+        /// Event triggered when the entity dies.
+        /// </summary>
+        [SerializeField] LazyEvent OnDie = new();
+
+        /// <summary>
         /// Event triggered when damage is taken.
         /// </summary>
         LazyEvent OnDamageTaken = new();
 
-        /// <summary>
-        /// Event triggered when the entity dies.
+        /// <summary> 
         /// </summary>
-        LazyEvent OnDie = new();
+        /// <returns>Health amount represented as a fraction</returns>
+        public float GetHealthFraction()
+        {
+            return currentHealth / maxHealth;
+        }
 
         /// <summary>
         /// Checks if the entity is dead.

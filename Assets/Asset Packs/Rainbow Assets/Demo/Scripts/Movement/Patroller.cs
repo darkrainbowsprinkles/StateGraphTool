@@ -1,7 +1,8 @@
+using RainbowAssets.Demo.Control;
 using RainbowAssets.Utils;
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Movement
 {
     /// <summary>
     /// Handles patrolling behavior along a predefined patrol path.

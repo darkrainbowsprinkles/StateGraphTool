@@ -1,7 +1,7 @@
 using RainbowAssets.Utils;
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Movement
 {
     /// <summary>
     /// Allows free movement of the character based on player input and camera direction.

@@ -1,7 +1,7 @@
 using RainbowAssets.Utils;
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Core
 {
     /// <summary>
     /// Handles smooth animation playback.

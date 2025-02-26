@@ -1,7 +1,9 @@
+using RainbowAssets.Demo.Attributes;
+using RainbowAssets.Demo.Movement;
 using RainbowAssets.Utils;
 using UnityEngine;
 
-namespace RainbowAssets.Demo
+namespace RainbowAssets.Demo.Combat
 {
     /// <summary>
     /// Handles combat behavior.

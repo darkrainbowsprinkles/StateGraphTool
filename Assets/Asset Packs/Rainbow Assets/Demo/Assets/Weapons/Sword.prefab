@@ -247,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitboxCenter: {fileID: 4342078770185644599}
   hitboxRadius: 1.5
-  damage: 50
+  damage: 20
 --- !u!1 &8096504971983688560
 GameObject:
   m_ObjectHideFlags: 0
