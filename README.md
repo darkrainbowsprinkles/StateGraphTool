@@ -6,8 +6,9 @@
  - Clean Editor Window for Design and Maintenance.
    
 ## Overview:
-<img src = "https://github.com/ChoiBeomgyuItBoy/VisualStateMachine/assets/113314204/cc19e89a-4b13-40b7-b35e-83cd195e8092" widht = '400' height = '300'>
-<img src = "https://github.com/ChoiBeomgyuItBoy/VisualStateMachine/assets/113314204/f2623c33-414a-4e84-a4e2-fb4b2380c0bc" widht = '400' height = '300'>
+![image](https://github.com/user-attachments/assets/28aacde5-4007-4ebd-8b07-f2daef906884)
+![image](https://github.com/user-attachments/assets/adac190f-cfc8-454c-b6f2-468bf2be51e0)
+
 
 ## Download Asset Pack:
  - [Visual State Machine Asset Pack](https://drive.google.com/drive/folders/1ZZwQaWympnyEu64XSb3l2FUn4OfIjyeU?usp=sharing)
