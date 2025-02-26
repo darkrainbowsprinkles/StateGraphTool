@@ -109,7 +109,7 @@ MonoBehaviour:
     rootStateID: 3b060acc-d49f-499b-9b45-a0732faac63c
     trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
   uniqueID: 3b060acc-d49f-499b-9b45-a0732faac63c
-  position: {x: 85.41498, y: -177.69289}
+  position: {x: 93.5, y: -164.5}
   onEnterActions:
   - action: 1
     parameters:

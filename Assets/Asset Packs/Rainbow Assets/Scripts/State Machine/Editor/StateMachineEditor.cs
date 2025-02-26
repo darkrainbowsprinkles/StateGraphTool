@@ -22,10 +22,10 @@ namespace RainbowAssets.StateMachine.Editor
         /// <summary>
         /// Displays the State Machine Editor window.
         /// </summary>
-        [MenuItem("Rainbow Assets/State Machine Editor")]
+        [MenuItem("Rainbow Assets/State Graph")]
         public static void ShowWindow()
         {
-            GetWindow(typeof(StateMachineEditor), false, "State Machine Editor");
+            GetWindow(typeof(StateMachineEditor), false, "State Graph");
         }
 
         /// <summary>
