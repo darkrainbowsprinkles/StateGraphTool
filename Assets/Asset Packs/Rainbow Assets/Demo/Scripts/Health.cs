@@ -4,25 +4,51 @@ using UnityEngine.AI;
 
 namespace RainbowAssets.Demo
 {
+    /// <summary>
+    /// Manages the health system, handling damage, death events, and evaluations.
+    /// </summary>
     public class Health : MonoBehaviour, IPredicateEvaluator
     {
+        /// <summary>
+        /// The maximum amount of health the entity can have.
+        /// </summary>
         [SerializeField] float maxHealth = 100;
+
+        /// <summary>
+        /// The current health of the entity.
+        /// </summary>
         [SerializeField] float currentHealth;
+
+        /// <summary>
+        /// Event triggered when damage is taken.
+        /// </summary>
         LazyEvent OnDamageTaken = new();
+
+        /// <summary>
+        /// Event triggered when the entity dies.
+        /// </summary>
         LazyEvent OnDie = new();
 
+        /// <summary>
+        /// Checks if the entity is dead.
+        /// </summary>
+        /// <returns>True if health is zero, otherwise false.</returns>
         public bool IsDead()
         {
             return currentHealth == 0;
         }
 
+        /// <summary>
+        /// Reduces the entity's health by the specified amount.
+        /// </summary>
+        /// <param name="damage">The amount of damage to take.</param>
         public void TakeDamage(float damage)
         {
-            if(!IsDead())
+            if (!IsDead())
             {
                 currentHealth = Mathf.Max(0, currentHealth - damage);
 
-                if(IsDead())
+                if (IsDead())
                 {
                     GetComponent<NavMeshAgent>().enabled = false;
                     StartCoroutine(OnDie?.Invoke());
@@ -34,14 +60,24 @@ namespace RainbowAssets.Demo
             }
         }
 
+        // LIFECYCLE METHODS
+
         void Start()
         {
             currentHealth = maxHealth;
         }
 
+        /// <summary>
+        /// Evaluates predicates related to health events.
+        /// </summary>
+        /// <param name="predicate">The predicate to evaluate.</param>
+        /// <param name="parameters">Additional parameters for evaluation.</param>
+        /// <returns>
+        /// True if the predicate condition is met, false otherwise, or null if unsupported.
+        /// </returns>
         bool? IPredicateEvaluator.Evaluate(EPredicate predicate, string[] parameters)
         {
-            switch(predicate)
+            switch (predicate)
             {
                 case EPredicate.DamageTakenEvent:
                     return OnDamageTaken.WasInvoked();

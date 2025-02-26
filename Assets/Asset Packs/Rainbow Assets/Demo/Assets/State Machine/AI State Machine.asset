@@ -22,6 +22,14 @@ MonoBehaviour:
           negate: 0
     rootStateID: 6a6aed25-12a4-48da-8aa1-083266ccd3a1
     trueStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
+  - condition:
+      and:
+      - or:
+        - predicate: 6
+          parameters: []
+          negate: 0
+    rootStateID: 6a6aed25-12a4-48da-8aa1-083266ccd3a1
+    trueStateID: aeda4b5c-b159-43b6-9095-dba732c09afd
   uniqueID: 6a6aed25-12a4-48da-8aa1-083266ccd3a1
   position: {x: 568, y: -105}
   onEnterActions: []

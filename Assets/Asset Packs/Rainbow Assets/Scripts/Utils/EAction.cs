@@ -5,7 +5,7 @@ namespace RainbowAssets.Utils
     /// </summary>
     public enum EAction
     {
-        // Following action used for Demo, remove them if desired
+        // Following actions are used for Demo purposes, remove them if desired
         FreeLook, 
         PlayAnimation, 
         MoveToWaypoint, 

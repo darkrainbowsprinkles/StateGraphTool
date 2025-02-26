@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a6c9f7e438737428f7fb5ef02f4325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
+  maxSpeed: 7
   destinationTolerance: 1
 --- !u!114 &4551963721958355651
 MonoBehaviour:
@@ -186,3 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  chaseRange: 10
+  chaseSpeedFraction: 1
+  attackRange: 1
+  suspicionDuration: 3
