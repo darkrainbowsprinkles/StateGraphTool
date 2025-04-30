@@ -1,0 +1,12 @@
+{
+    "name": "com.darkrainbowsprinkles.stategraph",
+    "version": "1.0.0",
+    "displayName": "State Graph",
+    "description": "A visual scripting tool for Unity that allows you to define behaviors using a state machine editor.",
+    "unity": "2021.3",
+    "author": {
+      "name": "darkrainbowsprinkles",
+      "url": "https://github.com/darkrainbowsprinkles"
+    }
+  }
+  
