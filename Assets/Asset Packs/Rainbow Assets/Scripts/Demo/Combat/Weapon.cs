@@ -1,4 +1,3 @@
-using RainbowAssets.Demo.Attributes;
 using UnityEngine;
 
 namespace RainbowAssets.Demo.Combat
@@ -38,7 +37,7 @@ namespace RainbowAssets.Demo.Combat
                     continue;
                 }
 
-                if(hit.transform.TryGetComponent(out Health health))
+                if(hit.transform.TryGetComponent(out RainbowAssets.Demo.Attributes.Health health))
                 {
                     health.TakeDamage(damage);
                 }

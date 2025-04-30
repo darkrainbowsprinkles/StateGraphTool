@@ -13,7 +13,7 @@ namespace RainbowAssets.Demo.Combat
         /// <summary>
         /// The weapon used by the fighter.
         /// </summary>
-        [SerializeField] Weapon weapon;
+        [SerializeField] RainbowAssets.Demo.Combat.Weapon weapon;
 
         [Header("AI Parameters")]
 
@@ -37,8 +37,8 @@ namespace RainbowAssets.Demo.Combat
         /// </summary>
         [SerializeField] float suspicionDuration = 3;
 
-        Mover mover;
-        Health player;
+        RainbowAssets.Demo.Movement.Mover mover;
+        RainbowAssets.Demo.Attributes.Health player;
         float timeSinceLastSawPlayer = Mathf.Infinity;
 
         /// <summary>
@@ -53,8 +53,8 @@ namespace RainbowAssets.Demo.Combat
 
         void Awake()
         {
-            mover = GetComponent<Mover>();
-            player = GameObject.FindWithTag("Player").GetComponent<Health>();
+            mover = GetComponent<RainbowAssets.Demo.Movement.Mover>();
+            player = GameObject.FindWithTag("Player").GetComponent<RainbowAssets.Demo.Attributes.Health>();
         }
 
         void Update()

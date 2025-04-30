@@ -1,4 +1,3 @@
-using RainbowAssets.Demo.Attributes;
 using UnityEngine;
 
 namespace RainbowAssets.Demo
@@ -11,7 +10,7 @@ namespace RainbowAssets.Demo
         /// <summary>
         /// The Health component representing the entity's health.
         /// </summary>
-        [SerializeField] Health health;
+        [SerializeField] RainbowAssets.Demo.Attributes.Health health;
 
         /// <summary>
         /// The foreground RectTransform that visually represents the health bar.

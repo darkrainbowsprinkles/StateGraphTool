@@ -10,6 +10,7 @@ namespace RainbowAssets.Utils
         PlayAnimation, 
         MoveToWaypoint, 
         CancelMovement, 
-        ChasePlayer 
+        ChasePlayer,
+        PrintMessage
     }
 }

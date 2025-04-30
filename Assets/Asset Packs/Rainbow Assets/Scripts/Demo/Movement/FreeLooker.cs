@@ -13,13 +13,13 @@ namespace RainbowAssets.Demo.Movement
         /// </summary>
         [SerializeField, Range(0,1)] float freeLookSpeedFraction = 1;
 
-        Mover mover;
+        RainbowAssets.Demo.Movement.Mover mover;
 
         // LIFECYCLE METHODS
 
         void Awake()
         {
-            mover = GetComponent<Mover>();
+            mover = GetComponent<RainbowAssets.Demo.Movement.Mover>();
         }
 
         /// <summary>

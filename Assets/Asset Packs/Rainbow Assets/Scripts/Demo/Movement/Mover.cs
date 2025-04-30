@@ -1,4 +1,3 @@
-using RainbowAssets.Demo.Core;
 using RainbowAssets.Utils;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,7 +20,7 @@ namespace RainbowAssets.Demo.Movement
         [SerializeField] float destinationTolerance = 1;
 
         NavMeshAgent agent;
-        AnimationPlayer animationPlayer;
+        RainbowAssets.Demo.Core.AnimationPlayer animationPlayer;
 
         /// <summary>
         /// Moves the character to the specified destination at a given speed fraction.
@@ -53,7 +52,7 @@ namespace RainbowAssets.Demo.Movement
         void Awake()
         {
             agent = GetComponent<NavMeshAgent>();   
-            animationPlayer = GetComponent<AnimationPlayer>();
+            animationPlayer = GetComponent<RainbowAssets.Demo.Core.AnimationPlayer>();
         }
 
         void Update()

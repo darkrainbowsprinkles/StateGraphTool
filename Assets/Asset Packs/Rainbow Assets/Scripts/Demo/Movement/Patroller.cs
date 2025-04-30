@@ -1,4 +1,3 @@
-using RainbowAssets.Demo.Control;
 using RainbowAssets.Utils;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ namespace RainbowAssets.Demo.Movement
         /// <summary>
         /// The patrol path defining waypoints for movement.
         /// </summary>
-        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] RainbowAssets.Demo.Control.PatrolPath patrolPath;
 
         /// <summary>
         /// The fraction of maximum speed used while patrolling.
@@ -26,13 +25,13 @@ namespace RainbowAssets.Demo.Movement
 
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
-        Mover mover;
+        RainbowAssets.Demo.Movement.Mover mover;
 
         // LIFECYCLE METHODS
 
         void Awake()
         {
-            mover = GetComponent<Mover>();
+            mover = GetComponent<RainbowAssets.Demo.Movement.Mover>();
         }
 
         void Update()
