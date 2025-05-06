@@ -1,8 +1,5 @@
-# State Graph Tool for Unity
-## Description:
-The State Graph is a powerful and intuitive tool for building gameplay logic visually inside Unity. This tool transforms how behaviors are authored by providing a complete state machine system with a clean node-based interface.
-
-With a focus on modularity and developer experience, this package was built to scale, whether you're prototyping quick ideas or building robust state-driven systems for your game.
+![State Graph Banners](https://github.com/user-attachments/assets/a2ed1d63-1066-40ed-b489-ed7974664ba7)
+The State Graph is a visual state machine editor for Unity, designed to make creating and managing game logic intuitive and scalable. Built with a clean node-based interface and a modular structure, it lets developers define state-driven behaviors directly within the Unity Editor.
 
 ## Technical Details:
 - **Visual Graph Based Editing**: Create and manage states, transitions, and conditions directly in a user friendly node graph.
