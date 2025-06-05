@@ -9,15 +9,26 @@ namespace RainbowAssets.StateMachine.Editor
     /// </summary>
     public class StateMachineEditor : EditorWindow
     {
-        /// <summary>
-        /// The path to the resources for the StateMachineEditor.
-        /// </summary>
-        public const string path = "Assets/Asset Packs/Rainbow Assets/Scripts/State Machine/Editor/";
-
-        /// <summary>
+        // <summary>
         /// The visual component used to display the StateMachine.
         /// </summary>
         StateMachineView stateMachineView;
+
+        /// <summary>
+        /// Gets the directory path of this editor script dynamically.
+        /// </summary>
+        public static string GetPath()
+        {
+            string[] guids = AssetDatabase.FindAssets("StateMachineEditor t:Script");
+
+            if (guids.Length > 0)
+            {
+                string scriptPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+                return System.IO.Path.GetDirectoryName(scriptPath).Replace("\\", "/") + "/";
+            }
+
+            return "Assets/";
+        }
 
         /// <summary>
         /// Displays the State Machine Editor window.
@@ -53,7 +64,7 @@ namespace RainbowAssets.StateMachine.Editor
         {
             VisualElement root = rootVisualElement;
 
-            VisualTreeAsset visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(path + "StateMachineEditor.uxml");
+            VisualTreeAsset visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(GetPath() + "StateMachineEditor.uxml");
             visualTree.CloneTree(root);
 
             stateMachineView = root.Q<StateMachineView>();

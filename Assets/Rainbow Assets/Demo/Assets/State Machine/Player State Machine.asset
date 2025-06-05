@@ -24,7 +24,7 @@ MonoBehaviour:
     rootStateID: 6a493a9c-317a-46b6-b750-36830d3f4a19
     trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
   uniqueID: 6a493a9c-317a-46b6-b750-36830d3f4a19
-  position: {x: 529.5209, y: 8.000008}
+  position: {x: 546.00024, y: 8.000002}
   onEnterActions:
   - action: 1
     parameters:
@@ -78,7 +78,7 @@ MonoBehaviour:
   title: Dead State
   transitions: []
   uniqueID: 97778a54-1e5f-4d2c-aaf0-880819141611
-  position: {x: 538, y: 120}
+  position: {x: 538, y: 120.000015}
   onEnterActions:
   - action: 1
     parameters:

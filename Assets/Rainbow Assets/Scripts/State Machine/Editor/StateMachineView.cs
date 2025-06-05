@@ -23,11 +23,16 @@ namespace RainbowAssets.StateMachine.Editor
         StateMachine stateMachine;
 
         /// <summary>
+        /// An array of menu indexes to remove from the contextual menu.    
+        /// <summary>
+        int[] menuIndexesToRemove = new int[] { 1, 2, 4 };
+
+        /// <summary>
         /// Initializes the StateMachineView, loading the necessary stylesheet and setting up manipulators for interaction.
         /// </summary>
         public StateMachineView()
         {
-            StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(StateMachineEditor.path + "StateMachineEditor.uss");
+            StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(StateMachineEditor.GetPath() + "StateMachineEditor.uss");
             styleSheets.Add(styleSheet);
 
             Insert(0, new GridBackground());

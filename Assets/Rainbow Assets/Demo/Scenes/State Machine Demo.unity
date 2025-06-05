@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 256196479}
+    - target: {fileID: 3825729810093951277, guid: 398a0745326657448b0b9641271111da, type: 3}
+      propertyPath: patrolSpeedFraction
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1210,11 +1214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5840245077754106532, guid: fd5bb1bb245c3a94d9fd963f69e893f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017068626
+      value: 0.000000017068633
       objectReference: {fileID: 0}
     - target: {fileID: 5840245077754106532, guid: fd5bb1bb245c3a94d9fd963f69e893f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000021728863
+      value: -0.0000000021728872
       objectReference: {fileID: 0}
     - target: {fileID: 6459603846114844574, guid: fd5bb1bb245c3a94d9fd963f69e893f1, type: 3}
       propertyPath: m_Follow

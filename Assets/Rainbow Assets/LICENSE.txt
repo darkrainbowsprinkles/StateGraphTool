@@ -1,0 +1,14 @@
+Mixamo Asset Notice
+
+Character models and/or animations for the tool demo were obtained from Mixamo (https://www.mixamo.com/).
+
+Mixamo assets are provided free of charge for use in personal and commercial projects, subject to the Mixamo license agreement. Redistribution of the assets as standalone files is not permitted.
+
+Assets used:
+    Various character models and humanoid animations from Mixamo.
+
+Some assets may have been modified to fit the needs of this project.
+
+Mixamo and Adobe are not affiliated with this project.
+
+Copyright © Adobe. All rights reserved.

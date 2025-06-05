@@ -42,7 +42,7 @@ namespace RainbowAssets.StateMachine.Editor
         /// Initializes a new instance of the <see cref="StateView"/> class.
         /// </summary>
         /// <param name="state">The state associated with this view.</param>
-        public StateView(State state) : base(StateMachineEditor.path + "StateView.uxml")
+        public StateView(State state) : base(StateMachineEditor.GetPath() + "StateView.uxml")
         {
             this.state = state;
 

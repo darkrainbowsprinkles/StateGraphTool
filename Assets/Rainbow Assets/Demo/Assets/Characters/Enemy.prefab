@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPath: {fileID: 0}
-  patrolSpeedFraction: 0.6
+  patrolSpeedFraction: 0.1
   waypointDwellTime: 3
 --- !u!114 &8083883555960280859 stripped
 MonoBehaviour:
