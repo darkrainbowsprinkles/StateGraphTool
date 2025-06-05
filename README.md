@@ -1,23 +1,16 @@
-# State Graph Tool for Unity
-## Description:
-The State Graph is a powerful and intuitive tool for building gameplay logic visually inside Unity. Designed for developers who value both control and clarity, this tool transforms how behaviors are authored by providing a complete state machine system with a clean, node-based interface.
-
-Whether you're creating AI, animations, input-driven mechanics, or interaction systems, this editor allows you to structure your logic through states, transitions, and modular actions — all in a highly visual and user-friendly environment.
-
-With a focus on modularity and developer experience, this package was built to scale — whether you're prototyping quick ideas or building robust state-driven systems for your game.
-
-This tool was made by a developer, for developers — aiming to reduce friction, simplify logic creation, and give you full control over your game's stateful behavior, without sacrificing clarity or flexibility.
+![State Graph Banners](https://github.com/user-attachments/assets/a2ed1d63-1066-40ed-b489-ed7974664ba7)
+The State Graph is a visual state machine editor for Unity, designed to make creating and managing game logic intuitive and scalable. Built with a clean node-based interface and a modular structure, it lets developers define state-driven behaviors directly within the Unity Editor.
 
 ## Technical Details:
-- **Visual Graph-Based Editing**: Create and manage states, transitions, and conditions directly in a user-friendly node graph.
+- **Visual Graph Based Editing**: Create and manage states, transitions, and conditions directly in a user friendly node graph.
 
-- **State Lifecycle Support**: Define actions for On Enter, On Tick, and On Exit per state, fully customizable via your own logic.
+- **State Lifecycle**: Define actions for On Enter, On Tick, and On Exit per state, fully customizable via your own logic.
 
-- **Flexible Transition System**:Transitions are powered by custom predicates using conjunctive normal form (AND/OR logic) for unlimited complexity.
+- **Flexible Transition System**: Transitions are powered by custom predicates using conjunctive normal form (AND/OR logic) for unlimited complexity.
 
-- **Extensible**: Easily integrate your own systems by implementing simple action and predicate interfaces. Whether you already have a working control system or you're building one from scratch, adapting it to the state machine requires nothing more than plugging your logic into the provided interfaces — no need to rewrite your existing codebase.
+- **Extensible**: Easily integrate your own systems by implementing simple action and predicate interfaces. Whether you already have a working control system or you're building one from scratch, adapting it to the state machine requires nothing more than plugging your logic into the provided interfaces, no need to rewrite your existing codebase.
 
-- **Parameter-Based Control**: Easily pass parameters from the editor (e.g., movement speeds, animation names, etc.) — ideal for rapid iteration without extra scripting.
+- **Parameter Based Control**: Easily pass parameters from the editor (e.g: movement speeds, animation names, etc.) ideal for rapid iteration without extra scripting.
 
 - **Demo Included**: A fully functional demo scene including a 3rd person combat system is provided to help you get started instantly.
    
