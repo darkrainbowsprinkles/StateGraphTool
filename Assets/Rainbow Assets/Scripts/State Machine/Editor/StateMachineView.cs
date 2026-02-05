@@ -23,11 +23,6 @@ namespace RainbowAssets.StateMachine.Editor
         StateMachine stateMachine;
 
         /// <summary>
-        /// An array of menu indexes to remove from the contextual menu.    
-        /// <summary>
-        int[] menuIndexesToRemove = new int[] { 1, 2, 4 };
-
-        /// <summary>
         /// Initializes the StateMachineView, loading the necessary stylesheet and setting up manipulators for interaction.
         /// </summary>
         public StateMachineView()
@@ -77,7 +72,7 @@ namespace RainbowAssets.StateMachine.Editor
         /// <summary>
         /// Updates the visual representation of the states in the graph view.
         /// </summary>
-        public void UpdateStates()
+        public void UpdateStates(StateMachineController controller)
         {
             foreach (var node in nodes)
             {
@@ -85,7 +80,7 @@ namespace RainbowAssets.StateMachine.Editor
 
                 if (stateView != null)
                 {
-                    stateView.UpdateState();
+                    stateView.SetRunning(controller.GetCurrentState() == stateView.GetState());
                 }
             }
         }

@@ -8,7 +8,7 @@ namespace RainbowAssets.Demo.Combat
     /// <summary>
     /// Handles combat behavior.
     /// </summary>
-    public class Fighter : MonoBehaviour, IAction, IPredicateEvaluator
+    public class Fighter : MonoBehaviour, IActionPerformer, IPredicateEvaluator
     {
         /// <summary>
         /// The weapon used by the fighter.
@@ -90,7 +90,7 @@ namespace RainbowAssets.Demo.Combat
         /// </summary>
         /// <param name="action">The action to perform.</param>
         /// <param name="parameters">Additional parameters for the action.</param>
-        void IAction.DoAction(EAction action, string[] parameters)
+        void IActionPerformer.PerformAction(EAction action, string[] parameters)
         {
             switch (action)
             {

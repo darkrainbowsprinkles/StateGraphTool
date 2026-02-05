@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -30,7 +29,7 @@ namespace RainbowAssets.StateMachine.Editor
         }
 
         /// <summary>
-        /// Draws the transition labelbased on the current Transition.
+        /// Draws the transition label based on the current Transition.
         /// </summary>
         /// <param name="property">The SerializedProperty representing the Transition object.</param>
         /// <param name="container">The container VisualElement to which the transition label is added.</param>
@@ -47,8 +46,11 @@ namespace RainbowAssets.StateMachine.Editor
                 State rootState = stateMachine.GetState(rootStateID.stringValue);
                 State trueState = stateMachine.GetState(trueStateID.stringValue);
 
-                Label transitionLabel = new($"{rootState.GetTitle()} → {trueState.GetTitle()}");
-                container.Add(transitionLabel);
+                if (rootState != null && trueState != null)
+                {
+                    Label transitionLabel = new($"{rootState.GetTitle()} → {trueState.GetTitle()}");
+                    container.Add(transitionLabel);
+                }
             }
         }
 

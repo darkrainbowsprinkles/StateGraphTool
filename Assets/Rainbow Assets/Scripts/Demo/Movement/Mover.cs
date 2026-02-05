@@ -7,7 +7,7 @@ namespace RainbowAssets.Demo.Movement
     /// <summary>
     /// Handles character movement.
     /// </summary>
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IActionPerformer
     {
         /// <summary>
         /// Maximum movement speed of the character.
@@ -74,7 +74,7 @@ namespace RainbowAssets.Demo.Movement
         /// </summary>
         /// <param name="action">The action to perform.</param>
         /// <param name="parameters">Additional parameters for the action.</param>
-        void IAction.DoAction(EAction action, string[] parameters)
+        void IActionPerformer.PerformAction(EAction action, string[] parameters)
         {
             switch(action)
             {

@@ -6,7 +6,7 @@ namespace RainbowAssets.Demo.Movement
     /// <summary>
     /// Handles patrolling behavior along a predefined patrol path.
     /// </summary>
-    public class Patroller : MonoBehaviour, IAction, IPredicateEvaluator
+    public class Patroller : MonoBehaviour, IActionPerformer, IPredicateEvaluator
     {
         /// <summary>
         /// The patrol path defining waypoints for movement.
@@ -78,7 +78,7 @@ namespace RainbowAssets.Demo.Movement
         /// </summary>
         /// <param name="action">The action to perform.</param>
         /// <param name="parameters">Additional parameters for the action.</param>
-        void IAction.DoAction(EAction action, string[] parameters)
+        void IActionPerformer.PerformAction(EAction action, string[] parameters)
         {
             switch (action)
             {

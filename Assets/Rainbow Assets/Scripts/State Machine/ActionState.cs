@@ -11,23 +11,23 @@ namespace RainbowAssets.StateMachine
         /// <summary>
         /// Actions executed when the state is entered.
         /// </summary>
-        [SerializeField] ActionData[] onEnterActions;
+        [SerializeField] StateAction[] onEnterActions;
 
         /// <summary>
         /// Actions executed during the state's update cycle.
         /// </summary>
-        [SerializeField] ActionData[] onTickActions;
+        [SerializeField] StateAction[] onTickActions;
 
         /// <summary>
         /// Actions executed when the state is exited.
         /// </summary>
-        [SerializeField] ActionData[] onExitActions;
+        [SerializeField] StateAction[] onExitActions;
 
         /// <summary>
         /// Represents an action with parameters that can be executed by the state.
         /// </summary>
         [System.Serializable]
-        class ActionData
+        class StateAction
         {
             /// <summary>
             /// The action to be executed.
@@ -43,41 +43,41 @@ namespace RainbowAssets.StateMachine
         /// <summary>
         /// Called when the state is entered. Executes all defined enter actions.
         /// </summary>
-        public override void Enter()
+        public override void Enter(StateMachineController controller)
         {
-            base.Enter();
-            DoActions(onEnterActions);
+            base.Enter(controller);
+            PerformActions(onEnterActions, controller);
         }
 
         /// <summary>
         /// Called every frame while the state is active. Executes all defined tick actions.
         /// </summary>
-        public override void Tick()
+        public override void Tick(StateMachineController controller)
         {
-            base.Tick();
-            DoActions(onTickActions);
+            base.Tick(controller);
+            PerformActions(onTickActions, controller);
         }
 
         /// <summary>
         /// Called when the state is exited. Executes all defined exit actions.
         /// </summary>
-        public override void Exit()
+        public override void Exit(StateMachineController controller)
         {
-            base.Exit();
-            DoActions(onExitActions);
+            base.Exit(controller);
+            PerformActions(onExitActions, controller);
         }
 
         /// <summary>
         /// Executes a given set of actions by invoking them on all components implementing IAction.
         /// </summary>
         /// <param name="actions">The array of actions to execute.</param>
-        void DoActions(ActionData[] actions)
+        void PerformActions(StateAction[] actions, StateMachineController controller)
         {
-            foreach (var action in controller.GetComponents<IAction>())
+            foreach (var action in controller.GetActionPerformers())
             {
                 foreach (var actionData in actions)
                 {
-                    action.DoAction(actionData.action, actionData.parameters);
+                    action.PerformAction(actionData.action, actionData.parameters);
                 }
             }
         }

@@ -1,3 +1,4 @@
+using RainbowAssets.Utils;
 using UnityEngine;
 
 namespace RainbowAssets.StateMachine
@@ -14,6 +15,48 @@ namespace RainbowAssets.StateMachine
         [SerializeField] StateMachine stateMachine;
 
         /// <summary>
+        /// Cached array of IPredicateEvaluator components on this GameObject.
+        /// </summary>
+        IPredicateEvaluator[] predicateEvaluators;
+
+        /// <summary>
+        /// Cached array of IActionPerformer components on this GameObject.
+        /// </summary>
+        IActionPerformer[] actionPerformers;
+        
+        /// <summary>
+        /// The currently active state in the state machine.
+        /// </summary>
+        State currentState;
+
+        /// <summary>
+        /// Gets the cached predicate evaluators on this GameObject.
+        /// </summary>
+        /// <returns>An array of IPredicateEvaluator components.</returns>
+        public IPredicateEvaluator[] GetPredicateEvaluators()
+        {
+            return predicateEvaluators;
+        }
+
+        /// <summary>
+        /// Gets the cached action performers on this GameObject.
+        /// </summary>
+        /// <returns>An array of IActionPerformer components.</returns>
+        public IActionPerformer[] GetActionPerformers()
+        {
+            return actionPerformers;
+        }
+
+        /// <summary>
+        /// Gets the currently active state.
+        /// </summary>
+        /// <returns>The current State.</returns>
+        public State GetCurrentState()
+        {
+            return currentState;
+        }
+
+        /// <summary>
         /// Gets the current StateMachine instance.
         /// </summary>
         /// <returns>The controlled StateMachine.</returns>
@@ -23,30 +66,33 @@ namespace RainbowAssets.StateMachine
         }
 
         /// <summary>
-        /// Switches the active state in the StateMachine to the specified state.
+        /// Switches the active state of the state machine.
         /// </summary>
-        /// <param name="newStateID">The unique identifier of the new state.</param>
+        /// <param name="newState">Tthe state to transition to.</param>
         public void SwitchState(string newStateID)
         {
-            stateMachine.SwitchState(newStateID);
+            currentState?.Exit(this);
+            currentState = stateMachine.GetState(newStateID);
+            currentState.Enter(this);
         }
 
         // LIFECYCLE METHODS
 
         void Awake()
         {
-            stateMachine = stateMachine.Clone();
+            predicateEvaluators = GetComponents<IPredicateEvaluator>();
+            actionPerformers = GetComponents<IActionPerformer>();
         }
 
         void Start()
         {
-            stateMachine.Bind(this);
-            stateMachine.Enter();
+            SwitchState(stateMachine.GetEntryState().GetUniqueID());
         }
 
         void Update()
         {
-            stateMachine.Tick();
+            currentState.Tick(this);
+            stateMachine.GetAnyState().Tick(this);
         }
     }
 }

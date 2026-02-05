@@ -29,12 +29,12 @@ namespace RainbowAssets.StateMachine
         /// <summary>
         /// The default position offset for the entry state in the editor.
         /// </summary>
-        Vector2 entryStateOffset = new(250, 0);
+        readonly Vector2 entryStateOffset = new(250, 0);
 
         /// <summary>
         /// The default position offset for the any state in the editor.
         /// </summary>
-        Vector2 anyStateOffset = new(250, 50);
+        readonly Vector2 anyStateOffset = new(250, 50);
 
         /// <summary>
         /// A lookup dictionary to quickly find states by their unique ID.
@@ -42,42 +42,21 @@ namespace RainbowAssets.StateMachine
         Dictionary<string, State> stateLookup = new();
 
         /// <summary>
-        /// The currently active state in the state machine.
+        /// Gets the entry state of the state machine.
         /// </summary>
-        State currentState;
-
-        /// <summary>
-        /// Binds the state machine to a controller and to all its states.
-        /// </summary>
-        /// <param name="controller">The state machine controller.</param>
-        public void Bind(StateMachineController controller)
+        /// <returns>The EntryState instance.</returns>
+        public EntryState GetEntryState()
         {
-            foreach (var state in states)
-            {
-                state.Bind(controller);
-            }
+            return entryState;
         }
 
         /// <summary>
-        /// Creates a new instance of the state machine.
+        /// Gets the any state of the state machine.
         /// </summary>
-        /// <returns>A cloned instance of the state machine.</returns>
-        public StateMachine Clone()
+        /// <returns>The AnyState instance.</returns>
+        public AnyState GetAnyState()
         {
-            StateMachine clone = Instantiate(this);
-
-            clone.states.Clear();
-            clone.stateLookup.Clear();
-
-            foreach (var state in states)
-            {
-                clone.AddState(state.Clone());
-            }
-
-            clone.entryState = clone.GetState(entryState.GetUniqueID()) as EntryState;
-            clone.anyState = clone.GetState(anyState.GetUniqueID()) as AnyState;
-
-            return clone;
+            return anyState;
         }
 
         /// <summary>
@@ -103,34 +82,6 @@ namespace RainbowAssets.StateMachine
         public IEnumerable<State> GetStates()
         {
             return states;
-        }
-
-        /// <summary>
-        /// Starts the state machine by transitioning to the entry state.
-        /// </summary>
-        public void Enter()
-        {
-            SwitchState(entryState.GetEntryStateID());
-        }
-
-        /// <summary>
-        /// Updates the current state and the any state each frame.
-        /// </summary>
-        public void Tick()
-        {
-            currentState.Tick();
-            anyState.Tick();
-        }
-
-        /// <summary>
-        /// Switches the active state of the state machine.
-        /// </summary>
-        /// <param name="newStateID">The ID of the state to transition to.</param>
-        public void SwitchState(string newStateID)
-        {
-            currentState?.Exit();
-            currentState = GetState(newStateID);
-            currentState.Enter();
         }
 
     #if UNITY_EDITOR
@@ -176,38 +127,6 @@ namespace RainbowAssets.StateMachine
             return newState;
         }
     #endif
-
-        /// <summary>
-        /// Called when the object is enabled, resetting the current state.
-        /// </summary>
-        void OnEnable()
-        {
-            currentState = null;
-        }
-
-        /// <summary>
-        /// Called when the object is first loaded, validating states.
-        /// </summary>
-        void Awake()
-        {
-            OnValidate();
-        }
-
-        /// <summary>
-        /// Ensures the state lookup dictionary is updated when the object is modified.
-        /// </summary>
-        void OnValidate()
-        {
-            stateLookup.Clear();
-
-            foreach (var state in states)
-            {
-                if (state != null)
-                {
-                    stateLookup[state.GetUniqueID()] = state;
-                }
-            }
-        }
 
         /// <summary>
         /// Adds a new state to the state machine and updates its validation.
@@ -256,6 +175,25 @@ namespace RainbowAssets.StateMachine
         /// Handles deserialization after the object is loaded.
         /// </summary>
         void ISerializationCallbackReceiver.OnAfterDeserialize() { }
-    }
 
+        // LIFECYCLE METHODS
+
+        void Awake()
+        {
+            OnValidate();
+        }
+
+        void OnValidate()
+        {
+            stateLookup.Clear();
+
+            foreach (var state in states)
+            {
+                if (state != null)
+                {
+                    stateLookup[state.GetUniqueID()] = state;
+                }
+            }
+        }
+    }
 }

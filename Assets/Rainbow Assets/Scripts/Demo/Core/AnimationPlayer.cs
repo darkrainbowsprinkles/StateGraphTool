@@ -6,7 +6,7 @@ namespace RainbowAssets.Demo.Core
     /// <summary>
     /// Handles smooth animation playback.
     /// </summary>
-    public class AnimationPlayer : MonoBehaviour, IAction, IPredicateEvaluator
+    public class AnimationPlayer : MonoBehaviour, IActionPerformer, IPredicateEvaluator
     {
         /// <summary>
         /// The duration for animation cross-fading.
@@ -62,7 +62,7 @@ namespace RainbowAssets.Demo.Core
         /// </summary>
         /// <param name="action">The action to perform.</param>
         /// <param name="parameters">Additional parameters for the action.</param>
-        void IAction.DoAction(EAction action, string[] parameters)
+        void IActionPerformer.PerformAction(EAction action, string[] parameters)
         {
             switch (action)
             {

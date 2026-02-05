@@ -25,11 +25,6 @@ namespace RainbowAssets.StateMachine
         [SerializeField, HideInInspector] string trueStateID;
 
         /// <summary>
-        /// The controller managing the StateMachine that this transition belongs to.
-        /// </summary>
-        StateMachineController controller;
-
-        /// <summary>
         /// Initializes a new instance of a Transition with specified root and target state IDs.
         /// </summary>
         /// <param name="rootStateID">The ID of the root state.</param>
@@ -38,15 +33,6 @@ namespace RainbowAssets.StateMachine
         {
             this.rootStateID = rootStateID;
             this.trueStateID = trueStateID;
-        }
-
-        /// <summary>
-        /// Binds the transition to a specific StateMachineController.
-        /// </summary>
-        /// <param name="controller">The StateMachineController managing this transition.</param>
-        public void Bind(StateMachineController controller)
-        {
-            this.controller = controller;
         }
 
         /// <summary>
@@ -71,9 +57,9 @@ namespace RainbowAssets.StateMachine
         /// Evaluates the transition condition to determine if the transition should occur.
         /// </summary>
         /// <returns>True if the condition is met, otherwise false.</returns>
-        public bool Check()
+        public bool Check(StateMachineController controller)
         {
-            return condition.Check(controller.GetComponents<IPredicateEvaluator>());
+            return condition.Check(controller.GetPredicateEvaluators());
         }
     }
 }

@@ -82,11 +82,11 @@ namespace RainbowAssets.StateMachine.Editor
         /// <summary>
         /// Updates the state in the view if the application is running.
         /// </summary>
-        public void UpdateState()
+        public void SetRunning(bool running)
         {
             if (Application.isPlaying)
             {
-                if (state.Started())
+                if (running)
                 {
                     updateContainer.AddToClassList("runningState");
                 }

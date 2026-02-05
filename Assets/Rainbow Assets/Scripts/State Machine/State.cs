@@ -30,53 +30,6 @@ namespace RainbowAssets.StateMachine
         [HideInInspector, SerializeField] Vector2 position;
 
         /// <summary>
-        /// Dictionary for quick transition lookup.
-        /// </summary>
-        Dictionary<string, Transition> transitionLookup = new();
-
-        /// <summary>
-        /// Indicates whether the state has started.
-        /// </summary>
-        bool started = false;
-
-        /// <summary>
-        /// Reference to the StateMachineController that manages this state.
-        /// </summary>
-        protected StateMachineController controller;
-
-        /// <summary>
-        /// Binds the state to a StateMachineController and binds all its transitions.
-        /// </summary>
-        /// <param name="controller">The StateMachineController to bind to.</param>
-        public void Bind(StateMachineController controller)
-        {
-            this.controller = controller;
-
-            foreach (var transition in transitions)
-            {
-                transition.Bind(controller);
-            }
-        }
-
-        /// <summary>
-        /// Creates a new instance of this state.
-        /// </summary>
-        /// <returns>A cloned instance of this state.</returns>
-        public State Clone()
-        {
-            return Instantiate(this);
-        }
-
-        /// <summary>
-        /// Checks whether the state has started.
-        /// </summary>
-        /// <returns>True if the state has started, false otherwise.</returns>
-        public bool Started()
-        {
-            return started;
-        }
-
-        /// <summary>
         /// Gets the unique ID of the state.
         /// </summary>
         /// <returns>The unique ID of the state.</returns>
@@ -150,7 +103,6 @@ namespace RainbowAssets.StateMachine
         {
             Undo.RecordObject(this, "Transition Added");
             transitions.Add(new Transition(uniqueID, trueStateID));
-            OnValidate();
             EditorUtility.SetDirty(this);
         }
 
@@ -162,7 +114,6 @@ namespace RainbowAssets.StateMachine
         {
             Undo.RecordObject(this, "Transition Removed");
             transitions.Remove(GetTransition(trueStateID));
-            OnValidate();
             EditorUtility.SetDirty(this);
         }
     #endif
@@ -170,49 +121,19 @@ namespace RainbowAssets.StateMachine
         /// <summary>
         /// Called when the state is entered.
         /// </summary>
-        public virtual void Enter()
-        {
-            started = true;
-        }
-
-        /// <summary>
-        /// Called every frame while the state is active.
-        /// </summary>
-        public virtual void Tick()
-        {
-            CheckTransitions();
-        }
+        public virtual void Enter(StateMachineController controller) { }
 
         /// <summary>
         /// Called when the state is exited.
         /// </summary>
-        public virtual void Exit()
-        {
-            started = false;
-        }
+        public virtual void Exit(StateMachineController controller) { }
 
         /// <summary>
-        /// Called when the state is initialized.
+        /// Called every frame while the state is active.
         /// </summary>
-        void Awake()
+        public virtual void Tick(StateMachineController controller)
         {
-            OnValidate();
-        }
-
-        /// <summary>
-        /// Validates and updates the transition lookup dictionary.
-        /// </summary>
-        void OnValidate()
-        {
-            transitionLookup.Clear();
-
-            foreach (var transition in transitions)
-            {
-                if (transition != null)
-                {
-                    transitionLookup[transition.GetTrueStateID()] = transition;
-                }
-            }
+            CheckTransitions(controller);
         }
 
         /// <summary>
@@ -222,24 +143,25 @@ namespace RainbowAssets.StateMachine
         /// <returns>The corresponding transition, or null if not found.</returns>
         Transition GetTransition(string trueStateID)
         {
-            if (!transitionLookup.ContainsKey(trueStateID))
+            foreach (var transition in transitions)
             {
-                return null;
+                if (transition.GetTrueStateID() == trueStateID)
+                {
+                    return transition;
+                }
             }
 
-            return transitionLookup[trueStateID];
+            return null;
         }
 
         /// <summary>
         /// Checks all transitions and switches the state if a condition is met.
         /// </summary>
-        void CheckTransitions()
+        void CheckTransitions(StateMachineController controller)
         {
             foreach (var transition in transitions)
             {
-                bool success = transition.Check();
-
-                if (success)
+                if (transition.Check(controller))
                 {
                     string trueStateID = transition.GetTrueStateID();
                     controller.SwitchState(trueStateID);

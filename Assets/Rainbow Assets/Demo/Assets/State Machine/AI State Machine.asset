@@ -308,7 +308,7 @@ MonoBehaviour:
     rootStateID: 01727744-2304-459d-8361-5921db1774a6
     trueStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
   uniqueID: 01727744-2304-459d-8361-5921db1774a6
-  position: {x: 512.3001, y: -2.9999905}
+  position: {x: 531, y: -10}
   onEnterActions:
   - action: 1
     parameters:

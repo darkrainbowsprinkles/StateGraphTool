@@ -6,7 +6,7 @@ namespace RainbowAssets.Demo.Movement
     /// <summary>
     /// Allows free movement of the character based on player input and camera direction.
     /// </summary>
-    public class FreeLooker : MonoBehaviour, IAction
+    public class FreeLooker : MonoBehaviour, IActionPerformer
     {
         /// <summary>
         /// The movement speed fraction when freely looking.
@@ -53,7 +53,7 @@ namespace RainbowAssets.Demo.Movement
         /// </summary>
         /// <param name="action">The action to perform.</param>
         /// <param name="parameters">Additional parameters for the action.</param>
-        void IAction.DoAction(EAction action, string[] parameters)
+        void IActionPerformer.PerformAction(EAction action, string[] parameters)
         {
             switch(action)
             {

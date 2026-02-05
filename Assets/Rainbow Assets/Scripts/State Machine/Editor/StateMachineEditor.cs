@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEditor.Callbacks;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace RainbowAssets.StateMachine.Editor
@@ -13,6 +14,11 @@ namespace RainbowAssets.StateMachine.Editor
         /// The visual component used to display the StateMachine.
         /// </summary>
         StateMachineView stateMachineView;
+
+        /// <summary>
+        /// The currently selected StateMachineController for updating the view.
+        /// </summary>
+        StateMachineController currentController;
 
         /// <summary>
         /// Gets the directory path of this editor script dynamically.
@@ -78,13 +84,13 @@ namespace RainbowAssets.StateMachine.Editor
         void OnSelectionChange()
         {
             StateMachine stateMachine = Selection.activeObject as StateMachine;
+            currentController = null;
 
             if (Selection.activeGameObject)
             {
-                StateMachineController controller = Selection.activeGameObject.GetComponent<StateMachineController>();
-
-                if (controller != null)
+                if (Selection.activeGameObject.TryGetComponent(out StateMachineController controller))
                 {
+                    currentController = controller;
                     stateMachine = controller.GetStateMachine();
                 }
             }
@@ -136,9 +142,9 @@ namespace RainbowAssets.StateMachine.Editor
         /// </summary>
         void OnInspectorUpdate()
         {
-            if (stateMachineView != null)
+            if (stateMachineView != null && Application.isPlaying)
             {
-                stateMachineView.UpdateStates();
+                stateMachineView.UpdateStates(currentController);
             }
         }
     }
