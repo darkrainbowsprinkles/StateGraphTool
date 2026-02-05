@@ -21,5 +21,5 @@ The State Graph is a visual state machine editor for Unity, designed to make cre
 ![4](https://github.com/user-attachments/assets/41f6c3db-38b4-455b-b678-3dd8ac73a6a5)
 
 ## Download Asset Pack:
- - [State Graph Download](https://github.com/darkrainbowsprinkles/StateGraphTool/releases/tag/Release)
+ - [State Graph Releases](https://github.com/darkrainbowsprinkles/StateGraphTool/releases)
 
