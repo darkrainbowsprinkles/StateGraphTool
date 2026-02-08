@@ -39,8 +39,6 @@ namespace RainbowAssets.Demo.Attributes
             }
         }
 
-        // LIFECYCLE METHODS
-
         void Start()
         {
             currentHealth = maxHealth;

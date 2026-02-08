@@ -3,7 +3,7 @@ namespace RainbowAssets.Utils
     public enum EPredicate
     {
         // Following predicates are used for Demo purposes, remove them if desired
-        KeyCodePressed,
+        InputActionPressed,
         AnimationOver,
         AtWaypoint,
         CanPatrol,

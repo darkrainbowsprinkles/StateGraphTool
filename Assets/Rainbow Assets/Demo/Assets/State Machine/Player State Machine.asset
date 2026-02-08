@@ -20,6 +20,7 @@ MonoBehaviour:
         - predicate: 1
           parameters:
           - Impact
+          - Impact
           negate: 0
     rootStateID: 6a493a9c-317a-46b6-b750-36830d3f4a19
     trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
@@ -52,14 +53,16 @@ MonoBehaviour:
         - predicate: 1
           parameters:
           - Combat
+          - Combat
           negate: 0
     rootStateID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
     trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
   uniqueID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
-  position: {x: 430, y: -174.04001}
+  position: {x: 438, y: -169}
   onEnterActions:
   - action: 1
     parameters:
+    - Attack
     - Attack
   onTickActions: []
   onExitActions: []
@@ -83,6 +86,7 @@ MonoBehaviour:
   - action: 1
     parameters:
     - Death
+    - Death
   onTickActions: []
   onExitActions: []
 --- !u!114 &-1050957419590461455
@@ -105,6 +109,7 @@ MonoBehaviour:
         - predicate: 1
           parameters:
           - Locomotion
+          - Locomotion
           negate: 0
     rootStateID: 3b060acc-d49f-499b-9b45-a0732faac63c
     trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
@@ -113,6 +118,7 @@ MonoBehaviour:
   onEnterActions:
   - action: 1
     parameters:
+    - Jump
     - Jump
   onTickActions: []
   onExitActions: []
@@ -189,6 +195,7 @@ MonoBehaviour:
       - or:
         - predicate: 0
           parameters:
+          - Attack
           - Mouse0
           negate: 0
     rootStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
@@ -198,19 +205,23 @@ MonoBehaviour:
       - or:
         - predicate: 0
           parameters:
+          - Jump
           - Space
           negate: 0
     rootStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
     trueStateID: 3b060acc-d49f-499b-9b45-a0732faac63c
   uniqueID: 992921ca-74b1-4123-8cbc-4a514572cd92
-  position: {x: 253, y: -93.56}
+  position: {x: 258, y: -87}
   onEnterActions:
   - action: 1
     parameters:
     - Locomotion
+    - Locomotion
   onTickActions:
   - action: 0
-    parameters: []
+    parameters:
+    - 
+    - 
   onExitActions: []
 --- !u!114 &8475013577419875017
 MonoBehaviour:

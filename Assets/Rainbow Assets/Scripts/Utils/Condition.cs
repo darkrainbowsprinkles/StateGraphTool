@@ -22,7 +22,7 @@ namespace RainbowAssets.Utils
         }
 
         [System.Serializable]
-        class Disjunction
+        public class Disjunction
         {
             [SerializeField] Predicate[] or;
 
@@ -41,7 +41,7 @@ namespace RainbowAssets.Utils
         }
 
         [System.Serializable]
-        class Predicate
+        public class Predicate
         {
             [SerializeField] EPredicate predicate;
             [SerializeField] string[] parameters;
