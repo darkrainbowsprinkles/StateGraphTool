@@ -4,38 +4,18 @@ using UnityEditor.Experimental.GraphView;
 
 namespace RainbowAssets.StateMachine.Editor
 {
-    /// <summary>
-    /// Represents a transition edge in the state machine graph.
-    /// </summary>
     public class TransitionEdge : Edge
     {
-        /// <summary>
-        /// The offset for the edge when positioning points horizontally.
-        /// </summary>
         const float edgeOffset = 4;
-
-        /// <summary>
-        /// The width of the transition arrow.
-        /// </summary>
         const float arrowWidth = 12;
-
-        /// <summary>
-        /// The vertical offset used when drawing a self-transition arrow.
-        /// </summary>
         const float selfArrowOffset = 35;
 
-        /// <summary>
-        /// Initializes the transition edge by registering callbacks for geometry changes and visual content drawing.
-        /// </summary>
         public TransitionEdge()
         {
             edgeControl.RegisterCallback<GeometryChangedEvent>(OnEdgeGeometryChanged);
             generateVisualContent += DrawArrow;
         }
 
-        /// <summary>
-        /// Determines whether a given point is within the bounds of the transition edge
-        /// </summary>
         public override bool ContainsPoint(Vector2 localPoint)
         {
             if(base.ContainsPoint(localPoint))
@@ -56,10 +36,6 @@ namespace RainbowAssets.StateMachine.Editor
         }
 
 
-        /// <summary>
-        /// Callback method for handling geometry changes in the edge's layout.
-        /// </summary>
-        /// <param name="evt">The event data containing information about the geometry change.</param>
         void OnEdgeGeometryChanged(GeometryChangedEvent evt)
         {
             PointsAndTangents[1] = PointsAndTangents[0];
@@ -74,9 +50,6 @@ namespace RainbowAssets.StateMachine.Editor
             MarkDirtyRepaint();
         }
 
-        /// <summary>
-        /// Adds a horizontal offset to the edge points based on the relative positions of the input and output nodes.
-        /// </summary>
         void AddHorizontalOffset()
         {
             if(input.node.GetPosition().x > output.node.GetPosition().x)
@@ -91,9 +64,6 @@ namespace RainbowAssets.StateMachine.Editor
             }
         }
 
-        /// <summary>
-        /// Adds a vertical offset to the edge points based on the relative positions of the input and output nodes.
-        /// </summary>
         void AddVerticalOffset()
         {
             if(input.node.GetPosition().y > output.node.GetPosition().y)
@@ -108,10 +78,6 @@ namespace RainbowAssets.StateMachine.Editor
             }
         }
 
-        /// <summary>
-        /// Draws the arrow for the transition edge based on its points and tangents.
-        /// </summary>
-        /// <param name="context">The mesh generation context used to allocate vertices and set visual data.</param>
         void DrawArrow(MeshGenerationContext context)
         {
             Vector2 start = PointsAndTangents[PointsAndTangents.Length / 2 - 1];
@@ -153,10 +119,6 @@ namespace RainbowAssets.StateMachine.Editor
             mesh.SetAllIndices(new ushort[] { 0, 1, 2 });
         }
 
-        /// <summary>
-        /// Determines if the transition is a self-transition (where the input and output nodes are the same).
-        /// </summary>
-        /// <returns>True if the transition is a self-transition; otherwise, false.</returns>
         bool IsSelfTransition()
         {   
             if(input != null && output != null)
@@ -167,11 +129,6 @@ namespace RainbowAssets.StateMachine.Editor
             return false;
         }
 
-        /// <summary>
-        /// Calculates the length of the perpendicular line for the arrow's direction based on the angle.
-        /// </summary>
-        /// <param name="angle">The angle of the arrow in degrees.</param>
-        /// <returns>The perpendicular length used for arrow drawing.</returns>
         float GetPerpendicularLength(float angle)
         {
             if(angle < 60 && angle > 0)
@@ -190,10 +147,6 @@ namespace RainbowAssets.StateMachine.Editor
             return arrowWidth / (Mathf.Sin(Mathf.Deg2Rad * (angle - 60)) * 2);
         }
 
-        /// <summary>
-        /// Retrieves the color used for the transition edge based on its state.
-        /// </summary>
-        /// <returns>The color of the transition edge.</returns>
         Color GetColor()
         {
             Color color = defaultColor;
