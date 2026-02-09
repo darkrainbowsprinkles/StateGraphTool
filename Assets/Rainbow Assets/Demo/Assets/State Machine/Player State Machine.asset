@@ -50,15 +50,15 @@ MonoBehaviour:
   - condition:
       and:
       - or:
-        - predicate: 1
+        - predicate: 0
           parameters:
-          - Combat
+          - Locomotion
           - Combat
           negate: 0
     rootStateID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
     trueStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
   uniqueID: 264bf631-6ed9-455c-b2ed-204f1c8b4d55
-  position: {x: 438, y: -169}
+  position: {x: 446, y: -169}
   onEnterActions:
   - action: 1
     parameters:
@@ -211,7 +211,7 @@ MonoBehaviour:
     rootStateID: 992921ca-74b1-4123-8cbc-4a514572cd92
     trueStateID: 3b060acc-d49f-499b-9b45-a0732faac63c
   uniqueID: 992921ca-74b1-4123-8cbc-4a514572cd92
-  position: {x: 258, y: -87}
+  position: {x: 266, y: -78}
   onEnterActions:
   - action: 1
     parameters:

@@ -239,7 +239,9 @@ MonoBehaviour:
       and:
       - or:
         - predicate: 3
-          parameters: []
+          parameters:
+          - 
+          - 
           negate: 0
     rootStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
     trueStateID: 846a302d-bd86-45a2-b1b3-84c5ea410228
@@ -247,7 +249,9 @@ MonoBehaviour:
       and:
       - or:
         - predicate: 6
-          parameters: []
+          parameters:
+          - 
+          - 
           negate: 0
     rootStateID: 5e77d292-9d7a-471a-b2a6-b6212f6359cb
     trueStateID: aeda4b5c-b159-43b6-9095-dba732c09afd

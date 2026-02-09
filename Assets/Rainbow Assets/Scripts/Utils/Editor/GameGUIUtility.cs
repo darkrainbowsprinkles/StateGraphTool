@@ -8,7 +8,6 @@ namespace RainbowAssets.Utils.Editor
 {
     public static class GameGUIUtlity
     {
-        static List<string> inputActionNames;
         const string inputActionsAssetPath = "Assets/Rainbow Assets/Demo/Assets/State Machine Input Actions.inputactions";
 
         public static void DrawTextField(VisualElement container, SerializedProperty property, string label)
@@ -27,11 +26,11 @@ namespace RainbowAssets.Utils.Editor
 
         public static void DrawInputActions(VisualElement container, SerializedProperty property)
         {
-            CreateInputActionNamesList();
+            List<string> inputActionNames = GetInputActionNames();
 
             if (inputActionNames == null || inputActionNames.Count == 0)
             {
-                container.Add(new PropertyField(property, "Input Action"));
+                DrawTextField(container, property, "Input Action");
                 container.Add(new HelpBox($"InputActionAsset not found at '{inputActionsAssetPath}", HelpBoxMessageType.Info));
                 return;
             }
@@ -56,21 +55,23 @@ namespace RainbowAssets.Utils.Editor
             container.Add(popup);
         }
 
-        static void CreateInputActionNamesList()
+        static List<string> GetInputActionNames()
         {
-            if (inputActionNames != null)
+            InputActionAsset inputActions = AssetDatabase.LoadAssetAtPath<InputActionAsset>(inputActionsAssetPath);
+
+            if (inputActions == null)
             {
-                return;
+                return null;
             }
 
-            inputActionNames = new List<string>();
-
-            InputActionAsset inputActions = AssetDatabase.LoadAssetAtPath<InputActionAsset>(inputActionsAssetPath);
+            List<string> inputActionNames = new();
 
             foreach (InputAction action in inputActions)
             {
                 inputActionNames.Add(action.name);
             }
+
+            return inputActionNames;
         }
     }
 }
